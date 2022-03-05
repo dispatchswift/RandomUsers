@@ -2,16 +2,27 @@
 //  BrightlineApp.swift
 //  Brightline
 //
-//  Created by Cleopatra on 3/4/22.
+//  Created by Amari Duran on 3/4/22.
 //
 
 import SwiftUI
 
 @main
 struct BrightlineApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+	
+	init() {
+		#if PRODUCTION
+		print("🛠 Environment: PRODUCTION")
+		#elseif STAGING
+		print("🛠 Environment: STAGING")
+		#else
+		print("🛠 Environment: DEVELOPMENT")
+		#endif
+	}
+	
+	var body: some Scene {
+		WindowGroup {
+			UsersView()
+		}
+	}
 }
